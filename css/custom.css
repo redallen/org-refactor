@@ -6,37 +6,83 @@
 }
 
 .intro {
+  letter-spacing:.15em;
+	font: 700 1em "News Cycle", sans-serif;
 	text-align: left;
-	color: rgb(75, 213, 238);
+  color: rgb(75, 213, 238);
 }
 
-@keyframes logo {
+.present .shrink {
+  animation-name: shrink;
+  animation-duration: 13s;
+  animation-iteration-count: 1;
+  transform: scale(0.1);
+  opacity: 0;
+}
+
+@keyframes shrink {
   0% {
-    width: 18em;
-    margin: -9em 0 0 -9em;
     opacity: 1;
+    transform:scale(2);
   }
-  50% {
+  90% {
+    transform:scale(0.1);
     opacity: 1;
-    width: 18em;
-    margin: -9em 0 0 -9em;
   }
   100% {
     opacity: 0;
-    width: 18em;
-    margin: -9em 0 0 -9em;
   }
 }
-@keyframes titles {
+
+.present .crawl {
+	font: 700 1em "News Cycle", sans-serif;
+  color: #feda4a;
+  perspective: 600px;
+  position: relative;
+  transform-origin: 50% 100%;
+  top: 2800px;
+  animation: crawl 45s linear;
+}
+
+.crawl-title {
+  font-size: 90%;
+  text-align: center;
+}
+
+.crawl-title > h1 {
+  margin: 0 0 100px;
+  text-transform: uppercase;
+  color: #feda4a !important;
+}
+
+.crawl-title > h3 {
+  margin: 0 0 50px;
+  text-transform: none;
+  color: #feda4a !important;
+}
+
+.crawl-text > p {
+  text-align: justify;
+  font-size: 1.8em;
+}
+
+@keyframes crawl {
   0% {
-    top: 100%;
-    opacity: 1;
+    top: 2800;
+    transform: rotateX(20deg) translateZ(0) scale(3);
   }
-  95% {
-    opacity: 1;
+  100% { 
+    top: -8000px;
+    /* Slightly increasing the rotation at the end and moving the text far away from the viewer */
+    transform: rotateX(20deg) translateZ(-2000px) scale(3);
   }
-  100% {
-    top: 20%;
-    opacity: 0;
-  }
+}
+
+.crawl-fade {
+  position: fixed;
+  width: 100%;
+  min-height: 60vh;
+  top: -150px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: 1;
 }

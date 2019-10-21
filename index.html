@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Patternfly.org -- A New Hope</title>
+		<title>Patternfly.org - A New Hope</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -81,7 +81,7 @@
 					</div>
 				</section>
 				<section data-transition="none" data-background="/img/star-background.png">
-					<svg width="171.38mm" height="59.199mm" version="1.1" viewBox="0 0 171.38 59.199" xmlns="http://www.w3.org/2000/svg">
+					<svg class="shrink" width="171.38mm" height="59.199mm" version="1.1" viewBox="0 0 171.38 59.199" xmlns="http://www.w3.org/2000/svg">
 						<g transform="translate(-25.325 -17.291)" fill="#ffff06">
 							<g transform="scale(.94722 1.0557)" aria-label="pattern ">
 							<path d="m26.884 42.768v-26.257h17.093q3.164 0.40004 5.1097 1.6365t2.7458 3.0185q0.80009 1.782 0.94556 3.0367 0.14547 1.2547 0.07273 2.473-0.07273 1.2183-0.52733 2.473-0.4546 1.2547-2.4548 2.8549-2.0002 1.6002-5.2733 2.0911h-8.2191v8.6737zm9.0374-20.166h7.3463q0.49096 0 1.2001 0.58188 0.70917 0.5637 0.83646 2.3639-0.07274 1.8729-0.76372 2.3457-0.6728 0.47278-1.2547 0.47278h-7.3645zm-7.9463 19.075h7.3099v-8.6737h9.3101q3.0913-0.63643 4.7278-2.0002 1.6365-1.3638 2.1821-3.1822t0.23639-3.4367q-0.30912-1.6184-0.87282-2.8185-0.5637-1.2001-2.2184-2.4003-1.6547-1.2001-4.6732-1.5638h-16.002zm9.0737-18.02v3.7095h5.6188q0.43641 0 0.96374-0.29094 0.54552-0.30912 0.58188-1.5456-0.09092-1.1274-0.65462-1.4911-0.54552-0.38186-0.90919-0.38186z"/>
@@ -104,35 +104,219 @@
 					</svg>
 				</section>
 				<section data-transition="none" data-background="/img/star-background.png">
-					<div>  
-						<p>
-							It is a period of civil war.
-							Rebel spaceships, striking
-							from a hidden base, have won
-							their first victory against
-							the evil Galactic Empire.
-						</p>
-			
-						<p>
-							During the battle, Rebel
-							spies managed to steal secret
-							plans to the Empire's
-							ultimate weapon, the DEATH
-							STAR, an armored space
-							station with enough power to
-							destroy an entire planet.
-						</p>
-			
-						<p>
-							Pursued by the Empire's
-							sinister agents, Princess
-							Leia races home aboard her
-							starship, custodian of the
-							stolen plan that can save
-							her people and restore
-							freedom to the galaxy....
-						</p>
+					<div class="crawl-fade"></div>
+					<div class="crawl">  
+						<div class="crawl-title">
+							<h3>Episode IV</h3>
+							<h1>A New Hope</h1>
+						</div>
+						<div class="crawl-text">
+							<p>
+								It is a period of designer unrest.
+								Our patternfly.org designers demand
+								more features with less bugs. Little
+								do they know, patternfly.org is currently three
+								sites merged into one behemoth.
+							</p>
+							<br>
+							<p>
+								With technical debt mounting, Rebel
+								spies managed to steal secret
+								plans to Gatsby's ultimate weapon, the
+								GATSBY THEME, a modular system
+								with enough power to
+								refactor all three sites at once.
+							</p>
+							<br>
+							<p>
+								Pursued by the looming deadlines,
+								PatternFly.org contributors race
+								to finish implementing the GATSBY
+								THEME that can save the designers
+								and restore freedom to the galaxy....
+							</p>
+						</div>
 					</div>
+				</section>
+				<section data-background="/img/star-background.png">
+					<p>Currently, we have three documentation sites:</p>
+					<ul>
+						<li><a target="_blank" href="https://pf4.patternfly.org">pf4.patternfly.org</a></li>
+						<li><a target="_blank" href="https://patternfly-react.surge.sh/patternfly-4">patternfly-react.surge.sh</a></li>
+						<li><a target="_blank" href="https://www.patternfly.org">patternfly.org</a></li>
+					</ul>
+				</section>
+				<section data-background="/img/star-background.png">
+					<h2><a target="_blank" href="https://pf4.patternfly.org">pf4.patternfly.org</a></h2>
+					<ul>
+						<li>Hosts HTML/CSS docs for
+							<a target="_blank" href="https://github.com/patternfly/patternfly-next">patternfly-next</a>
+						</li>
+						<li>Uses <a target="_blank" href="https://handlebarsjs.com/">Handlebars</a> to compile HTML examples</li>
+						<li>Used <code>index.js</code> barrel files with custom Gatsby config</li>
+					</ul>
+				</section>
+				<section data-background="/img/star-background.png">
+					<pre><code class="javascript" data-trim style="font-size: 12px; line-height: 20px;">
+						import React from 'react';
+						import Documentation from '@siteComponents/Documentation';
+						import Example from '@siteComponents/Example';
+						import brandSimpleExampleRaw from '!raw!./brand-simple-example.hbs';
+						import BrandSimpleExample from './brand-simple-example.hbs';
+						import docs from '../docs/code.md';
+
+						export const Docs = docs;
+						export default props =&gt; {
+							const brandSimpleExample = BrandSimpleExample();
+							const headingText = 'Brand';
+							const variablesRoot = 'pf-c-brand';
+
+							return (
+								&lt;Documentation data={props} docs={Docs} heading={headingText} variablesRoot={variablesRoot}&gt;
+									&lt;Example heading="Brand simple" handlebars={brandSimpleExampleRaw}&gt;
+										{brandSimpleExample}
+									&lt;/Example&gt;
+								&lt;/Documentation&gt;
+							);
+						};</code></pre>
+				</section>
+				<section data-background="/img/star-background.png">
+					<img alt="Old HTML/CSS docs">
+				</section>
+				<section data-background="/img/star-background.png">
+					<h2>Problems</h2>
+					<ul>
+						<li>Inconsistent side nav, different look and feel</li>
+						<li>No per-page fullscreen examples</li>
+						<li>Inconsistent URLs</li>
+						<li>Inconsistent <code>index.js</code> barrel files -- why should HTML devs know React?</li>
+						<li>Not designed to be imported into Patternfly.org </li>
+					</ul>
+				</section>
+				<section data-background="/img/star-background.png">
+					<h2>Solution: shared config</h2>
+					<ul>
+						<li>Convert to MDX format consistent with other <a target="_blank" href="https://github.com/patternfly/patternfly-react">patternfly-react</a>
+							and <a target="_blank" href="https://github.com/patternfly/patternfly-org">patternfly-org</a> repos
+						</li>
+						<li>Create shared <a target="_blank" href="https://github.com/patternfly/gatsby-theme-patternfly-org/blob/master/gatsby-theme-patternfly-org/templates/mdx.js"><code>mdx.js</code></a> template</li>
+						<li>Create shred <a target="_blank" href="https://github.com/patternfly/gatsby-theme-patternfly-org/blob/master/gatsby-theme-patternfly-org/components/example.js"><code>Example.js</code></a> component with <a target="_blank" href="https://github.com/FormidableLabs/react-live">react-live</a></li>
+						<li>Parse AST from MDX to create fullscreen pages</li>
+					</ul>
+				</section>
+				<section data-background="/img/star-background.png">
+					<ul>
+						<li>Copy over look and feel from current Patternfly.org</li>
+						<li>Add plugin options for top/side navigation</li>
+						<li>Stop using SASS for workspace</li>
+						<li>PREFIX ALL CSS CLASSES</li>
+						<li>Find design issues upstream</li>
+					</ul>
+				</section>
+				<section data-background="/img/star-background.png">
+					<pre><code class="javascript" data-trim style="font-size: 12px; line-height: 20px;">
+						---
+						title: Brand
+						section: components
+						---
+						
+						## Examples
+						```hbs title=Basic
+						{{#> brand brand--attribute='src="/assets/images/pf_logo.svg" alt="PatternFly logo"'}} 
+						{{/brand}}
+						```
+						
+						## Documentation
+						### Overiew
+						Simple brand component.
+						
+						### Accessibility
+						| Attribute | Applied to | Outcome |
+						| -- | -- | -- |
+						| `alt` | `.pf-c-brand` | The alt attribute specifies an alternate text for an image,
+						if the image cannot be displayed. **Required** |
+						
+						### Usage
+						| Class | Applied to | Outcome |
+						| -- | -- | -- |
+						| `.pf-c-brand` | `&lt;img&gt;` |  Initiates a brand image. **Required** |
+					</code></pre>
+					<p>Here's <a target="_blank" href="https://github.com/patternfly/patternfly-next/pull/2242">the PR</a> (+19,108/-22,516)</p>
+				</section>
+				<section data-background="/img/star-background.png">
+					<img alt="New HTML/CSS docs">
+				</section>
+				<section data-background="/img/star-background.png">
+					<h2>React</h2>
+					<pre><code class="markdown" data-trim style="font-size: 18px;">
+						## Simple area chart with right aligned legend
+						```js
+						(code)
+						```</code></pre>
+					<p>to</p>
+					<pre><code class="markdown" data-trim style="font-size: 18px;">
+						```js title=Basic-with-right-aligned-legend
+						(code)
+						```</code></pre>
+					<p>
+						Also stop using SASS.<br>
+						Here's <a target="_blank" href="https://github.com/patternfly/patternfly-react/pull/3146">the PR</a> (+5,402/-6,381)
+					</p>
+				</section>
+				<section data-background="/img/star-background.png">
+					<img alt="Old React docs">
+				</section>
+				<section data-background="/img/star-background.png">
+					<img alt="New React docs">
+				</section>
+				<section data-background="/img/star-background.png">
+					<h2>Result</h2>
+					<ul>
+						<li>Consistent look and feel</li>
+						<li>Consistent examples</li>
+						<ul>
+							<li>Prefix CSS classes (<code>#ws-core-l-flex-basic</code>, <code>.ws-core-l-bullseye</code>)</li>
+							<li>No inconsistently imported SASS</li>
+						</ul>
+						<li>Easier to develop patternfly.org</li>
+						<ul>
+							<li>DRY code</li>
+							<li>Run all 3 sites at once</li>
+							<li>Build in 8m (down from 25 minutes)</li>
+						</ul>
+					</ul>
+				</section>
+				<section data-background="/img/star-background.png">
+					<h2>Pitfalls</h2>
+					<p>I didn't realize Gatsby was also building
+						all the project SASS. I stopped development for 2 days and paid 5.
+						<ul>
+							<li>Hot reload docs: <a href="https://github.com/patternfly/patternfly-next/pull/2349">#2349</a></li>
+							<li>Don't ship duplicated CSS: <a href="https://github.com/patternfly/patternfly-next/pull/2360">#2360</a></li>
+							<li>Properly copy SASS files to dist: <a href="https://github.com/patternfly/patternfly-next/pull/2367">#2367</a></li>
+							<li>Fix HTML formatting regression: <a href="https://github.com/patternfly/patternfly-next/pull/2363">#2363</a></li>
+							<li>Properly copy SASS to dist: <a href="https://github.com/patternfly/patternfly-next/pull/2367">#2367</a></li>
+							<li>Use CSSNano for minification again: <a href="https://github.com/patternfly/patternfly-next/pull/2360">#2360</a></li>
+						</ul>
+					</p>
+				</section>
+				<section data-background="/img/star-background.png">
+					<h2>TODO</h2>
+					<ul>
+						<li>Reimplement all patternfly.org features</li>
+						<ul>
+							<li>Design section</li>
+							<li>Global search</li>
+							<li>Fullscreen preview thumbnails</li>
+						</ul>
+						<li>Make it easier develop patternfly.org</li>
+						<ul>
+							<li>PR previews for all 3 sites</li>
+							<li>Automatically publish theme and open PRs upstream in
+								<a target="_blank" href="https://github.com/patternfly/patternfly-next">patternfly-next</a>
+								and <a target="_blank" href="https://github.com/patternfly/patternfly-react">patternfly-react</a></li>
+						</ul>
+					</ul>
 				</section>
 			</div>
 		</div>
