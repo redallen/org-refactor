@@ -1,0 +1,42 @@
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+
+.star-wars {
+	font: 700 1em "News Cycle", sans-serif;
+  letter-spacing:.15em;
+}
+
+.intro {
+	text-align: left;
+	color: rgb(75, 213, 238);
+}
+
+@keyframes logo {
+  0% {
+    width: 18em;
+    margin: -9em 0 0 -9em;
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+    width: 18em;
+    margin: -9em 0 0 -9em;
+  }
+  100% {
+    opacity: 0;
+    width: 18em;
+    margin: -9em 0 0 -9em;
+  }
+}
+@keyframes titles {
+  0% {
+    top: 100%;
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    top: 20%;
+    opacity: 0;
+  }
+}
