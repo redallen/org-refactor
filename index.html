@@ -171,26 +171,33 @@
 							const headingText = 'Brand';
 							const variablesRoot = 'pf-c-brand';
 
-							return (
-								&lt;Documentation data={props} docs={Docs} heading={headingText} variablesRoot={variablesRoot}&gt;
+							return &lt;Documentation data={props} docs={Docs} heading={headingText} variablesRoot={variablesRoot}&gt;
 									&lt;Example heading="Brand simple" handlebars={brandSimpleExampleRaw}&gt;
 										{brandSimpleExample}
 									&lt;/Example&gt;
-								&lt;/Documentation&gt;
-							);
+								&lt;/Documentation&gt;;
 						};</code></pre>
+					<p>Old docs code</p>
 				</section>
 				<section data-background="/img/star-background.png">
-					<img alt="Old HTML/CSS docs">
+					<figure>
+						<img alt="Old HTML/CSS docs" src="/img/pf-next-badge-old.png">
+						<caption><a target="_blank" href="http://pf-core-old-docs.surge.sh/components/Badge/examples/">Old Core Badge docs</a></caption>
+					</figure>
 				</section>
 				<section data-background="/img/star-background.png">
 					<h2>Problems</h2>
 					<ul>
-						<li>Inconsistent side nav, different look and feel</li>
-						<li>No per-page fullscreen examples</li>
-						<li>Inconsistent URLs</li>
 						<li>Inconsistent <code>index.js</code> barrel files -- why should HTML devs know React?</li>
-						<li>Not designed to be imported into Patternfly.org </li>
+						<li>Not designed to be imported into Patternfly.org</li>
+						<ul>
+							<li>Webpack import aliasing</li>
+							<li>Inconsistent urls with React/Org</li>
+							<ul>
+							<li>/components/Badge</li>
+							<li>/documentation/core/components/Badge</li>
+							</ul>
+						</ul>
 					</ul>
 				</section>
 				<section data-background="/img/star-background.png">
@@ -200,8 +207,8 @@
 							and <a target="_blank" href="https://github.com/patternfly/patternfly-org">patternfly-org</a> repos
 						</li>
 						<li>Create shared <a target="_blank" href="https://github.com/patternfly/gatsby-theme-patternfly-org/blob/master/gatsby-theme-patternfly-org/templates/mdx.js"><code>mdx.js</code></a> template</li>
-						<li>Create shred <a target="_blank" href="https://github.com/patternfly/gatsby-theme-patternfly-org/blob/master/gatsby-theme-patternfly-org/components/example.js"><code>Example.js</code></a> component with <a target="_blank" href="https://github.com/FormidableLabs/react-live">react-live</a></li>
-						<li>Parse AST from MDX to create fullscreen pages</li>
+						<li>Create shared <a target="_blank" href="https://github.com/patternfly/gatsby-theme-patternfly-org/blob/master/gatsby-theme-patternfly-org/components/example.js"><code>Example.js</code></a> component with <a target="_blank" href="https://github.com/FormidableLabs/react-live">react-live</a></li>
+						<li>Parse MDX's <a target="_blank" href="https://github.com/unifiedjs/unified">unified.js</a> AST to create fullscreen pages</li>
 					</ul>
 				</section>
 				<section data-background="/img/star-background.png">
@@ -241,13 +248,22 @@
 						| -- | -- | -- |
 						| `.pf-c-brand` | `&lt;img&gt;` |  Initiates a brand image. **Required** |
 					</code></pre>
+					<p>New docs code</p>
 					<p>Here's <a target="_blank" href="https://github.com/patternfly/patternfly-next/pull/2242">the PR</a> (+19,108/-22,516)</p>
 				</section>
 				<section data-background="/img/star-background.png">
-					<img alt="New HTML/CSS docs">
+					<figure>
+						<img alt="New HTML/CSS docs" src="/img/pf-next-badge-new.png">
+						<caption><a target="_blank" href="https://pf4.patternfly.org/documentation/core/components/badge/">New Core Badge docs</a></caption>
+					</figure>
 				</section>
 				<section data-background="/img/star-background.png">
-					<h2>React</h2>
+					<h2>React Problems</h2>
+					<ul>
+						<li>Stop using SASS</li>
+						<li>Always give example components a name for codesandbox.io</li>
+						<li>Example titles</li>
+					</ul>
 					<pre><code class="markdown" data-trim style="font-size: 18px;">
 						## Simple area chart with right aligned legend
 						```js
@@ -259,15 +275,20 @@
 						(code)
 						```</code></pre>
 					<p>
-						Also stop using SASS.<br>
 						Here's <a target="_blank" href="https://github.com/patternfly/patternfly-react/pull/3146">the PR</a> (+5,402/-6,381)
 					</p>
 				</section>
 				<section data-background="/img/star-background.png">
-					<img alt="Old React docs">
+					<figure>
+						<img alt="Old React docs" src="/img/pf-react-badge-old.png">
+						<caption><a target="_blank" href="http://pf-react-old-docs.surge.sh/components/badge/">Old React Badge docs</a></caption>
+					</figure>
 				</section>
 				<section data-background="/img/star-background.png">
-					<img alt="New React docs">
+					<figure>
+						<img alt="New React docs" src="/img/pf-react-badge-new.png">
+						<caption><a target="_blank" href="https://patternfly-react.surge.sh/patternfly-4/documentation/react/components/badge/">New React Badge docs</a></caption>
+					</figure>
 				</section>
 				<section data-background="/img/star-background.png">
 					<h2>Result</h2>
@@ -275,7 +296,8 @@
 						<li>Consistent look and feel</li>
 						<li>Consistent examples</li>
 						<ul>
-							<li>Prefix CSS classes (<code>#ws-core-l-flex-basic</code>, <code>.ws-core-l-bullseye</code>)</li>
+							<li>Prefixed CSS classes for site (.ws-*)</li>
+							<li>Prefixed CSS classes for examples <br>(#ws-core-l-flex-basic, .ws-core-l-bullseye)</li>
 							<li>No inconsistently imported SASS</li>
 						</ul>
 						<li>Easier to develop patternfly.org</li>
@@ -287,16 +309,24 @@
 					</ul>
 				</section>
 				<section data-background="/img/star-background.png">
+					<h2>New features</h2>
+					<ul>
+						<li>Maintainable styling</li>
+						<li>Per-page fullscreen links (a11y!)</li>
+						<li>Codesandbox links (quick testing!)</li>
+					</ul>
+				</section>
+				<section data-background="/img/star-background.png">
 					<h2>Pitfalls</h2>
 					<p>I didn't realize Gatsby was also building
-						all the project SASS. I stopped development for 2 days and paid 5.
+						all the project SASS. I stopped Core development for 2 days.
 						<ul>
-							<li>Hot reload docs: <a href="https://github.com/patternfly/patternfly-next/pull/2349">#2349</a></li>
-							<li>Don't ship duplicated CSS: <a href="https://github.com/patternfly/patternfly-next/pull/2360">#2360</a></li>
-							<li>Properly copy SASS files to dist: <a href="https://github.com/patternfly/patternfly-next/pull/2367">#2367</a></li>
-							<li>Fix HTML formatting regression: <a href="https://github.com/patternfly/patternfly-next/pull/2363">#2363</a></li>
-							<li>Properly copy SASS to dist: <a href="https://github.com/patternfly/patternfly-next/pull/2367">#2367</a></li>
-							<li>Use CSSNano for minification again: <a href="https://github.com/patternfly/patternfly-next/pull/2360">#2360</a></li>
+							<li>Hot reload docs: <a target="_blank" href="https://github.com/patternfly/patternfly-next/pull/2349">#2349</a></li>
+							<li>Don't ship duplicated CSS: <a target="_blank" href="https://github.com/patternfly/patternfly-next/pull/2360">#2360</a></li>
+							<li>Properly copy SASS files to dist: <a target="_blank" href="https://github.com/patternfly/patternfly-next/pull/2367">#2367</a></li>
+							<li>Fix HTML formatting regression: <a target="_blank" href="https://github.com/patternfly/patternfly-next/pull/2363">#2363</a></li>
+							<li>Properly copy SASS to dist: <a target="_blank" href="https://github.com/patternfly/patternfly-next/pull/2367">#2367</a></li>
+							<li>Use CSSNano for minification again: <a target="_blank" href="https://github.com/patternfly/patternfly-next/pull/2360">#2360</a></li>
 						</ul>
 					</p>
 				</section>
