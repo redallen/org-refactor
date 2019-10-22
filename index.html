@@ -72,7 +72,7 @@
             </g>
           </svg>
         </section>
-        <section data-transition="none" data-background="/img/star-background.png">
+        <section data-transition="none" data-background="img/star-background.png">
           <div style="display: flex; justify-content: center;">
             <p class="intro fragment fade-in-then-out">
               A short time ago, in a galaxy very,<br> very near....
@@ -80,8 +80,8 @@
             <p class="fragment"></p>
           </div>
         </section>
-        <section data-transition="none" data-background="/img/star-background.png">
-          <audio src="/star-wars-theme.opus" data-autoplay></audio>
+        <section data-transition="none" data-background="img/star-background.png">
+          <audio src="star-wars-theme.opus" data-autoplay></audio>
           <div class="crawl-fade"></div>
           <svg class="shrink" width="171.38mm" height="59.199mm" version="1.1" viewBox="0 0 171.38 59.199" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(-25.325 -17.291)" fill="#ffff06">
@@ -139,7 +139,7 @@
             </div>
           </div>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <p>Currently, we have three documentation sites:</p>
           <ul>
             <li><a target="_blank" href="https://pf4.patternfly.org">pf4.patternfly.org</a></li>
@@ -147,7 +147,7 @@
             <li><a target="_blank" href="https://www.patternfly.org">patternfly.org</a></li>
           </ul>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h2><a target="_blank" href="https://patternfly.org">patternfly.org</a></h2>
           <ul>
             <li>Hosts HTML/CSS, React, and Design docs for Patternfly</li>
@@ -157,13 +157,13 @@
             <li>Does not share many styles with HTML/CSS or React docs</li>
           </ul>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <figure>
-            <img alt="Org screenshot" src="/img/pf-org-react-alert.png">
+            <img alt="Org screenshot" src="img/pf-org-react-alert.png">
             <caption><a target="_blank" href="https://www.patternfly.org/v4/documentation/react/components/alert/">Current org docs</a></caption>
           </figure>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h2>Problems</h2>
           <ul>
             <li>Not DRY -- most code copied and now out of date</li>
@@ -173,13 +173,13 @@
             <li>Relies on upstream hacks</li>
           </ul>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <figure>
-            <img alt="Org design snippet" src="/img/pf-org-design-snippet.png">
+            <img alt="Org design snippet" src="img/pf-org-design-snippet.png">
             <caption><a target="_blank" href="https://www.patternfly.org/v4/documentation/react/components/alert/">Org design snippet</a></caption>
           </figure>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <pre><code class="javascript" data-trim data-line-numbers="1,8">
             export default (props) =&gt; {
               const alertTypes = AlertTypes();
@@ -207,17 +207,17 @@
           <p>Upstream prop injection for patternfly.org in patternfly-next's repo.
             <a target="_blank" href="https://github.com/patternfly/patternfly-next/pull/1790">PR here.</a></p>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h3>Problem</h3>
           <p>New docs without the injected prop won't be able to show snippets. We have to go back upstream, which costs a lot of time...</p>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h2>Biggest Problems</h2>
           <ul>
             <li>Upstream doc changes frequently have unintended downstream consequences</li>
           </ul>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <p>Patternfly.org adds many custom styles to markdown, even sometimes changing the DOM</p>
           <pre><code class="javascript" data-trim data-line-numbers="2-4,8">
             const changeHeadingLevel = (html, level) =&gt; {
@@ -232,13 +232,13 @@
               changeTableResponsiveness(changeHeadingLevel(docs, 'h3')) };</code></pre>
           <p>Custom rendering markdown for <a target="_blank" href="https://github.com/patternfly/patternfly-org/blob/master/packages/patternfly-4/src/components/_core/Documentation/index.js">Core examples</a></p>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <figure>
-            <img alt="React h2 looks fine" src="/img/pf-react-h2-bug.png">
-            <img alt="Org h2 bug" src="/img/pf-org-h2-bug.png">
+            <img alt="React h2 looks fine" src="img/pf-react-h2-bug.png">
+            <img alt="Org h2 bug" src="img/pf-org-h2-bug.png">
           </figure>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h3>Solution</h3>
           <p>Unify the configuration using a <a target="_blank" href="https://www.gatsbyjs.org/docs/theme-api/">Gatsby theme.</a>
             Luckily, all our sites use Gatsby.</p>
@@ -251,7 +251,7 @@
             <a target="_blank" href="https://github.com/patternfly/patternfly-org">patternfly-org</a>
             (<a target="_blank" href="https://patternfly.org">https://patternfly.org</a>).</p>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h2><a target="_blank" href="https://pf4.patternfly.org">pf4.patternfly.org</a></h2>
           <ul>
             <li>Hosts HTML/CSS docs for
@@ -261,7 +261,7 @@
             <li>Used <code>index.js</code> barrel files with custom Gatsby config</li>
           </ul>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <pre><code class="javascript" data-trim style="font-size: 12px; line-height: 20px;">
             import React from 'react';
             import Documentation from '@siteComponents/Documentation';
@@ -284,13 +284,13 @@
             };</code></pre>
           <p>Old Core docs code</p>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <figure>
-            <img alt="Old HTML/CSS docs" src="/img/pf-next-badge-old.png">
+            <img alt="Old HTML/CSS docs" src="img/pf-next-badge-old.png">
             <caption><a target="_blank" href="http://pf-core-old-docs.surge.sh/components/Badge/examples/">Old Core docs</a></caption>
           </figure>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h2>Problems</h2>
           <ul>
             <li>Inconsistent <code>index.js</code> files -- why should HTML devs know React?</li>
@@ -306,7 +306,7 @@
             </ul>
           </ul>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h2>Solution: Gatsby theme</h2>
           <ul>
             <li>Convert to MDX format consistent with other <a target="_blank" href="https://github.com/patternfly/patternfly-react">patternfly-react</a>
@@ -319,7 +319,7 @@
             <li>Parse MDX's <a target="_blank" href="https://github.com/unifiedjs/unified">unified.js</a> AST to create fullscreen pages</li>
           </ul>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <ul>
             <li>Copy over look and feel from current Patternfly.org</li>
             <li>Add plugin options for top/side navigation</li>
@@ -328,7 +328,7 @@
             <li>Find design issues upstream</li>
           </ul>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <pre><code class="javascript" data-trim style="font-size: 12px; line-height: 20px;">
             ---
             title: Brand
@@ -359,13 +359,13 @@
           <p>New docs code</p>
           <p>Here's <a target="_blank" href="https://github.com/patternfly/patternfly-next/pull/2242">the PR</a> (+19,108/-22,516)</p>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <figure>
-            <img alt="New HTML/CSS docs" src="/img/pf-next-badge-new.png">
+            <img alt="New HTML/CSS docs" src="img/pf-next-badge-new.png">
             <caption><a target="_blank" href="https://pf4.patternfly.org/documentation/core/components/badge/">New Core docs</a></caption>
           </figure>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h2>React Problems</h2>
           <ul>
             <li>Using SASS</li>
@@ -386,19 +386,19 @@
             Here's <a target="_blank" href="https://github.com/patternfly/patternfly-react/pull/3146">the PR</a> (+5,402/-6,381)
           </p>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <figure>
-            <img alt="Old React docs" src="/img/pf-react-badge-old.png">
+            <img alt="Old React docs" src="img/pf-react-badge-old.png">
             <caption><a target="_blank" href="http://pf-react-old-docs.surge.sh/components/badge/">Old React docs</a></caption>
           </figure>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <figure>
-            <img alt="New React docs" src="/img/pf-react-badge-new.png">
+            <img alt="New React docs" src="img/pf-react-badge-new.png">
             <caption><a target="_blank" href="https://patternfly-react.surge.sh/patternfly-4/documentation/react/components/badge/">New React docs</a></caption>
           </figure>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h2>Result</h2>
           <ul>
             <li>Consistent look and feel</li>
@@ -416,7 +416,7 @@
             </ul>
           </ul>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h2>New features</h2>
           <ul>
             <li>Per-page fullscreen links (a11y!)</li>
@@ -425,7 +425,7 @@
             <li>Maintainable styling</li>
           </ul>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h2>Pitfalls</h2>
           <p>I didn't realize Gatsby was also building
             all the project SASS. I stopped Core development for 2 days.
@@ -439,7 +439,7 @@
             </ul>
           </p>
         </section>
-        <section data-background="/img/star-background.png">
+        <section data-background="img/star-background.png">
           <h2>TODO</h2>
           <ul>
             <li>Reimplement unique patternfly.org features</li>

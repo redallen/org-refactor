@@ -68,14 +68,14 @@
   width: 800px;
   margin: 0 auto;
   color: #feda4a;
-  transform: rotateX(30deg) translateY(110vh) scale(1.5);
+  transform: rotateX(30deg) translateY(150vh) scale(1.5);
   animation: animateCrawl 150s linear;
-  animation-delay: 10s;
+  animation-delay: 8s;
 }
 
 @keyframes animateCrawl {
   0% {
-    transform: rotateX(30deg) translateY(110vh) scale(1.5);
+    transform: rotateX(30deg) translateY(150vh) scale(1.5);
   }
   25% {
     opacity: 1;
